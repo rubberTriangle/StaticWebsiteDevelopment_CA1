@@ -1,0 +1,1120 @@
+/* ============================================================
+   GLOBAL COLORS AND VARIABLES
+   ============================================================ */
+
+:root {
+  --forest: #183f35;
+  --leaf: #3f755c;
+  --sage: #dce8d9;
+  --cream: #f7f5ed;
+  --paper: #fffef9;
+  --ink: #23342d;
+  --muted: #65736b;
+  --sun: #e5b85c;
+  --line: #d9dfd5;
+
+  /* Reusable shadow and border radius */
+  --shadow: 0 18px 50px rgba(24, 63, 53, .10);
+  --radius: 1.4rem;
+}
+
+/* ============================================================
+   GENERAL SETTINGS
+   ============================================================ */
+
+/* Include padding and borders in element dimensions */
+* {
+  box-sizing: border-box;
+}
+
+/* Enable smooth scrolling and account for the sticky header */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+/* Default page background, text color and typography */
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  line-height: 1.65;
+}
+
+/* Keep images responsive to their containers */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* ============================================================
+   LINKS AND ACCESSIBILITY
+   ============================================================ */
+
+/* Default link appearance */
+a {
+  color: var(--leaf);
+  text-underline-offset: .22em;
+}
+
+/* Link hover color */
+a:hover {
+  color: var(--forest);
+}
+
+/* Visible focus indicator for keyboard navigation */
+a:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--sun);
+  outline-offset: 4px;
+}
+
+/* Hide the skip link until it receives keyboard focus */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 1rem;
+  z-index: 20;
+  background: var(--paper);
+  padding: .8rem 1rem;
+}
+
+/* Reveal the skip link when focused */
+.skip-link:focus {
+  left: 1rem;
+}
+
+
+/* ============================================================
+   HEADER AND NAVIGATION
+   ============================================================ */
+
+/* Sticky navigation bar at the top of the page */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 254, 249, .96);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+
+/* Inner header container */
+.header-inner {
+  width: min(1160px, calc(100% - 2.5rem));
+  margin: auto;
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* Website logo and brand name */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  color: var(--forest);
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: -.04em;
+  font-size: 1.25rem;
+}
+
+.footer-brand{
+  color: white;
+}
+
+/* Decorative logo mark */
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50% 50% 50% 8px;
+  background: var(--forest);
+  color: white;
+  font-size: 1.2rem;
+  transform: rotate(-8deg);
+}
+
+/* Keep the logo symbol upright */
+.brand-mark span {
+  transform: rotate(8deg);
+}
+
+/* Desktop navigation layout */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: .2rem;
+}
+
+/* Navigation links for desktop and mobile */
+.desktop-nav a,
+.mobile-nav a {
+  color: var(--ink);
+  text-decoration: none;
+  padding: .65rem .8rem;
+  border-radius: 999px;
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+/* Hover and active navigation link styles */
+.desktop-nav a:hover,
+.desktop-nav a[aria-current="page"],
+.mobile-nav a:hover,
+.mobile-nav a[aria-current="page"] {
+  background: var(--sage);
+  color: var(--forest);
+}
+
+/* Hide the mobile menu on larger screens */
+.mobile-menu {
+  display: none;
+}
+
+/* Mobile menu toggle button */
+.menu-toggle {
+  cursor: pointer;
+  list-style: none;
+  color: var(--forest);
+  font-weight: 800;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: .6rem .85rem;
+}
+
+/* Remove the default details marker */
+.menu-toggle::-webkit-details-marker {
+  display: none;
+}
+
+/* Hamburger icon for the closed mobile menu */
+.menu-toggle::before {
+  content: "☰";
+  margin-right: .5rem;
+}
+
+/* Replace the hamburger with a close icon when open */
+.mobile-menu[open] .menu-toggle::before {
+  content: "✕";
+}
+
+/* Mobile navigation links container */
+.mobile-nav {
+  display: grid;
+  gap: .25rem;
+  padding: .25rem 1.25rem 1rem;
+}
+
+
+/* ============================================================
+   MAIN CONTENT CONTAINER
+   ============================================================ */
+
+/* Center content and limit the maximum width */
+.container {
+  width: min(1160px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+
+/* ============================================================
+   HOMEPAGE HERO SECTION
+   ============================================================ */
+
+/* Main homepage introduction spacing */
+.hero {
+  padding: clamp(3rem, 7vw, 6.5rem) 0 4rem;
+}
+
+/* Two-column layout for hero text and image */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.02fr .98fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+/* Small introductory label above headings */
+.eyebrow {
+  color: var(--leaf);
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  font-size: .75rem;
+  font-weight: 900;
+}
+
+/* General heading styles */
+h1,
+h2,
+h3 {
+  color: var(--forest);
+  line-height: 1.12;
+  letter-spacing: -.045em;
+}
+
+/* Main homepage heading */
+h1 {
+  font-size: clamp(2.7rem, 6vw, 5.5rem);
+  margin: .7rem 0 1.25rem;
+  max-width: 12ch;
+}
+
+/* Section headings */
+h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  margin: 0 0 1rem;
+}
+
+/* Subheadings */
+h3 {
+  font-size: 1.3rem;
+  margin: 0 0 .6rem;
+}
+
+/* Introductory text beneath the main heading */
+.lead {
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  color: var(--muted);
+  max-width: 58ch;
+}
+
+/* Container for homepage call-to-action buttons */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin-top: 1.7rem;
+}
+
+/* Container for the hero image and floating note */
+.hero-visual {
+  position: relative;
+  min-height: 420px;
+}
+
+/* Main homepage image */
+.hero-photo {
+  width: 100%;
+  height: 470px;
+  object-fit: cover;
+  border-radius: 48% 48% 1.5rem 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+/* Floating note positioned over the hero image */
+.photo-note {
+  position: absolute;
+  left: -1.2rem;
+  bottom: 1.5rem;
+  max-width: 230px;
+  background: var(--paper);
+  padding: 1rem 1.2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  font-weight: 800;
+  color: var(--forest);
+}
+
+/* Secondary text inside the floating note */
+.photo-note small {
+  display: block;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+/* Default button appearance and layout */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .9rem 1.2rem;
+  border-radius: 999px;
+  background: var(--forest);
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+  border: 2px solid var(--forest);
+  transition: transform .2s ease, background .2s ease;
+}
+
+/* Button hover effect */
+.button:hover {
+  color: white;
+  background: var(--leaf);
+  border-color: var(--leaf);
+  transform: translateY(-2px);
+}
+
+/* Secondary button with a transparent background */
+.button.secondary {
+  background: transparent;
+  color: var(--forest);
+}
+
+/* Secondary button hover background */
+.button.secondary:hover {
+  background: var(--sage);
+}
+
+
+/* ============================================================
+   CONTENT SECTIONS AND SECTION HEADINGS
+   ============================================================ */
+
+/* Standard vertical spacing for page sections */
+.section {
+  padding: 5rem 0;
+}
+
+/* White background variation for sections */
+.section.white {
+  background: var(--paper);
+}
+
+/* Layout for section headings and descriptions */
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Description alongside a section heading */
+.section-heading p {
+  max-width: 46ch;
+  color: var(--muted);
+  margin: 0;
+}
+
+
+/* ============================================================
+   CONTENT CARDS
+   ============================================================ */
+
+/* Three-column card grid on desktop */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+/* Individual content card */
+.topic-card {
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+/* Lift the card and add a shadow on hover */
+.topic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+/* Image inside each content card */
+.topic-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+/* Text area inside each card */
+.card-body {
+  padding: 1.35rem;
+}
+
+/* Paragraphs inside content cards */
+.card-body p {
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+
+/* Text links inside cards */
+.text-link {
+  font-weight: 900;
+  text-decoration: none;
+}
+
+/* Add an arrow after each text link */
+.text-link::after {
+  content: " ↗";
+}
+
+
+/* ============================================================
+   STATISTICS AND KEY FIGURES
+   ============================================================ */
+
+/* Row of statistics */
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Individual statistic block */
+.stat {
+  padding: 1.3rem;
+  border-left: 3px solid var(--sun);
+  background: rgba(255, 255, 255, .55);
+}
+
+/* Main statistic value or heading */
+.stat strong {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--forest);
+}
+
+/* Supporting text beneath each statistic */
+.stat span {
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+
+/* ============================================================
+   INNER PAGE HERO SECTIONS
+   ============================================================ */
+
+/* Introductory banner for inner pages */
+.page-hero {
+  padding: 4.5rem 0 3.2rem;
+  background: var(--sage);
+}
+
+/* Two-column layout for inner page introductions */
+.page-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* Main heading on inner pages */
+.page-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4.6rem);
+  max-width: 13ch;
+}
+
+/* Image in the inner page introduction */
+.page-hero img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 1.5rem 6rem 1.5rem 1.5rem;
+}
+
+
+/* ============================================================
+   ARTICLE AND PAGE CONTENT
+   ============================================================ */
+
+/* Main content and sidebar layout */
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(240px, .7fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Limit the width of long-form text */
+.prose {
+  max-width: 72ch;
+}
+
+/* Paragraphs inside article content */
+.prose p {
+  color: #46564d;
+}
+
+/* Second-level headings inside articles */
+.prose h2 {
+  margin-top: 2.4rem;
+  font-size: 2rem;
+}
+
+/* Third-level headings inside articles */
+.prose h3 {
+  margin-top: 1.6rem;
+}
+
+/* Highlighted information or notice boxes */
+.callout {
+  background: var(--sage);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+/* Emphasized text inside highlighted boxes */
+.callout strong {
+  color: var(--forest);
+}
+
+/* Custom checklist without default bullets */
+.check-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Individual checklist items */
+.check-list li {
+  padding: .65rem 0 .65rem 2rem;
+  position: relative;
+  border-bottom: 1px solid var(--line);
+}
+
+/* Add a checkmark before each checklist item */
+.check-list li::before {
+  content: "✓";
+  position: absolute;
+  left: .1rem;
+  color: var(--leaf);
+  font-weight: 900;
+}
+
+
+/* ============================================================
+   SIDEBAR CARDS
+   ============================================================ */
+
+/* Sticky sidebar information card */
+.side-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  position: sticky;
+  top: 110px;
+}
+
+/* Text and list items inside sidebar cards */
+.side-card p,
+.side-card li {
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+/* Indentation for sidebar lists */
+.side-card ul {
+  padding-left: 1.2rem;
+}
+
+
+/* ============================================================
+   IMAGE GALLERY
+   ============================================================ */
+
+/* Twelve-column gallery layout */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+}
+
+/* Individual gallery image container */
+.gallery figure {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.1rem;
+  background: var(--sage);
+  min-height: 240px;
+}
+
+/* Wider gallery images */
+.gallery figure:nth-child(1),
+.gallery figure:nth-child(4) {
+  grid-column: span 7;
+}
+
+/* Narrower gallery images */
+.gallery figure:nth-child(2),
+.gallery figure:nth-child(3) {
+  grid-column: span 5;
+}
+
+/* Images inside the gallery */
+.gallery img {
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+/* Zoom effect when hovering over a gallery image */
+.gallery figure:hover img {
+  transform: scale(1.05);
+}
+
+/* Caption overlay at the bottom of each gallery image */
+.gallery figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 2.6rem 1.2rem 1rem;
+  color: white;
+  font-weight: 800;
+  background: linear-gradient(transparent, rgba(12, 35, 27, .8));
+}
+
+
+/* ============================================================
+   IMAGE MASKS, BLENDING AND FILTERS
+   ============================================================ */
+
+/* Image with a soft radial fade around the edges */
+.mask-photo {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 53%, transparent 72%);
+  mask-image: radial-gradient(ellipse at center, #000 53%, transparent 72%);
+}
+
+/* Image blending panel */
+.blend-panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  min-height: 300px;
+  background: #b5cc75;
+}
+
+/* Image using a blending mode and reduced saturation */
+.blend-panel img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+  opacity: .78;
+  filter: saturate(.8);
+}
+
+/* Text overlay on the blending panel */
+.blend-label {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 900;
+  text-shadow: 0 2px 8px #17352c;
+}
+
+/* Image with a sepia tone, reduced saturation and increased contrast */
+.filter-photo {
+  filter: sepia(.35) saturate(.8) contrast(1.08);
+  border-radius: 1.2rem;
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+}
+
+
+/* ============================================================
+   FEATURE CARDS AND EXPANDABLE TIPS
+   ============================================================ */
+
+/* Two-column grid for featured content */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+/* Individual feature card */
+.feature {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+}
+
+/* Number or label inside a feature card */
+.feature .number {
+  color: var(--leaf);
+  font-size: .8rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+/* Expandable tip separator and spacing */
+details.tip {
+  border-bottom: 1px solid var(--line);
+  padding: 1rem 0;
+}
+
+/* Clickable heading of an expandable tip */
+details.tip summary {
+  cursor: pointer;
+  color: var(--forest);
+  font-weight: 900;
+}
+
+/* Text displayed inside an expanded tip */
+details.tip p {
+  color: var(--muted);
+  margin-bottom: .2rem;
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+/* Main footer background, text color and spacing */
+.site-footer {
+  background: var(--forest);
+  color: #edf3e9;
+  padding: 3rem 0 1.5rem;
+}
+
+/* Footer column layout */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr .8fr;
+  gap: 2rem;
+}
+
+/* Footer headings */
+.site-footer h2,
+.site-footer h3 {
+  color: white;
+}
+
+/* Footer paragraphs and list items */
+.site-footer p,
+.site-footer li {
+  color: #c6d6cc;
+}
+
+/* Footer links */
+.site-footer a {
+  color: #f2d58d;
+}
+
+/* Remove default bullets and padding from footer lists */
+.site-footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Spacing between footer list items */
+.site-footer li {
+  margin: .4rem 0;
+}
+
+/* Bottom footer area for copyright or secondary information */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, .2);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  font-size: .85rem;
+  color: #c6d6cc;
+}
+
+
+/* ============================================================
+   AUXILIARY TEXT
+   ============================================================ */
+
+/* Source and reference list spacing */
+.source-list li {
+  margin-bottom: .85rem;
+  overflow-wrap: anywhere;
+}
+
+/* Small notes and secondary text */
+.small-note {
+  font-size: .88rem;
+  color: var(--muted);
+}
+
+
+/* ============================================================
+   TABLET AND MEDIUM SCREENS
+   Screens up to 850px wide
+   ============================================================ */
+
+@media (max-width: 850px) {
+
+  /* Reduce spacing between desktop navigation links */
+  .desktop-nav {
+    gap: 0;
+  }
+
+  /* Reduce navigation link padding and font size */
+  .desktop-nav a {
+    padding: .6rem .55rem;
+    font-size: .82rem;
+  }
+
+  /* Stack the hero, inner page hero and article layouts */
+  .hero-grid,
+  .page-hero-grid,
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Reduce the minimum height of the hero image area */
+  .hero-visual {
+    min-height: 350px;
+  }
+
+  /* Reduce the main hero image height */
+  .hero-photo {
+    height: 400px;
+  }
+
+  /* Reduce inner page hero image height */
+  .page-hero img {
+    height: 280px;
+  }
+
+  /* Disable sticky positioning for sidebar cards */
+  .side-card {
+    position: static;
+  }
+
+  /* Display two content cards per row */
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* ============================================================
+   MOBILE AND SMALL SCREENS
+   Screens up to 599px wide
+   ============================================================ */
+
+@media (max-width: 599px) {
+
+  /* MOBILE HEADER */
+
+  /* Reduce header width and minimum height */
+  .header-inner {
+    width: min(100% - 1.5rem, 1160px);
+    min-height: 70px;
+  }
+
+  /* Hide desktop navigation */
+  .desktop-nav {
+    display: none;
+  }
+
+  /* Show the mobile menu toggle */
+  .mobile-menu {
+    display: block;
+  }
+
+  /* Position the mobile dropdown below the header */
+  .mobile-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+
+
+  /* MOBILE CONTENT CONTAINER */
+
+  /* Reduce horizontal page margins */
+  .container {
+    width: min(100% - 1.5rem, 1160px);
+  }
+
+
+  /* MOBILE HOMEPAGE HERO */
+
+  /* Reduce vertical spacing around the hero section */
+  .hero {
+    padding: 3rem 0;
+  }
+
+  /* Reduce the minimum height of the hero visual */
+  .hero-visual {
+    min-height: 300px;
+  }
+
+  /* Resize and reshape the main hero image */
+  .hero-photo {
+    height: 330px;
+    border-radius: 45% 45% 1rem 1rem;
+  }
+
+  /* Reposition and resize the floating image note */
+  .photo-note {
+    left: .4rem;
+    bottom: .5rem;
+    max-width: 190px;
+  }
+
+
+  /* MOBILE CONTENT SECTIONS */
+
+  /* Reduce vertical section spacing */
+  .section {
+    padding: 3.4rem 0;
+  }
+
+  /* Stack section headings and descriptions vertically */
+  .section-heading {
+    display: block;
+  }
+
+  /* Add spacing above section descriptions */
+  .section-heading p {
+    margin-top: .8rem;
+  }
+
+
+  /* MOBILE CARD GRIDS */
+
+  /* Display one item per row on small screens */
+  .card-grid,
+  .feature-grid,
+  .stat-strip,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Adjust content card image height */
+  .topic-card img {
+    height: 220px;
+  }
+
+
+  /* MOBILE INNER PAGE HERO */
+
+  /* Reduce padding around inner page introductions */
+  .page-hero {
+    padding: 3rem 0 2.5rem;
+  }
+
+  /* Reduce inner page hero image height */
+  .page-hero img {
+    height: 230px;
+  }
+
+
+  /* MOBILE IMAGE GALLERY */
+
+  /* Stack gallery images in a single column */
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  /* Remove special column spans from all gallery items */
+  .gallery figure:nth-child(n) {
+    grid-column: auto;
+  }
+
+  /* Adjust the minimum height of gallery images */
+  .gallery figure,
+  .gallery img {
+    min-height: 220px;
+  }
+
+
+  /* MOBILE IMAGE EFFECTS */
+
+  /* Reduce the height of masked images */
+  .mask-photo {
+    height: 270px;
+  }
+
+
+  /* MOBILE FOOTER */
+
+  /* Reduce spacing between footer columns */
+  .footer-grid {
+    gap: 1rem;
+  }
+}
+
+
+/* ============================================================
+   REDUCED MOTION ACCESSIBILITY
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  /* Disable smooth scrolling */
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* Minimize transitions and animations */
+  *,
+  *::before,
+  *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}
+
+
+/* ============================================================
+   PRINT STYLES
+   Applies when printing or saving the page as a PDF
+   ============================================================ */
+
+@media print {
+
+  /* Hide navigation, footer and interactive call-to-action buttons */
+  .site-header,
+  .site-footer,
+  .hero-actions,
+  .button {
+    display: none !important;
+  }
+
+  /* Use a white background and black text for printing */
+  body {
+    background: white;
+    color: black;
+  }
+
+  /* Remove colored backgrounds and reduce section spacing */
+  .section,
+  .page-hero {
+    padding: 1rem 0;
+    background: white;
+  }
+
+  /* Print links in black */
+  a {
+    color: black;
+  }
+
+  /* Avoid splitting these components across printed pages */
+  .topic-card,
+  .callout,
+  .feature {
+    break-inside: avoid;
+  }
+}
