@@ -16,6 +16,21 @@
   /* Reusable shadow and border radius */
   --shadow: 0 18px 50px rgba(24, 63, 53, .10);
   --radius: 1.4rem;
+
+  /* Additional colour variables */
+  --white: #ffffff;
+  --black: #000000;
+  --transparent: transparent;
+  --prose: #46564d;
+  --blend-background: #b5cc75;
+  --blend-shadow: #17352c;
+  --footer-text: #edf3e9;
+  --footer-muted: #c6d6cc;
+  --footer-link: #f2d58d;
+  --header-glass: rgba(255, 254, 249, .96);
+  --stat-background: rgba(255, 255, 255, .55);
+  --footer-divider: rgba(255, 255, 255, .2);
+  --gallery-caption: rgba(12, 35, 27, .8);
 }
 
 /* ============================================================
@@ -96,7 +111,7 @@ summary:focus-visible {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(255, 254, 249, .96);
+  background: var(--header-glass);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(12px);
 }
@@ -125,7 +140,7 @@ summary:focus-visible {
 }
 
 .footer-brand{
-  color: white;
+  color: var(--white);
 }
 
 /* Decorative logo mark */
@@ -136,7 +151,7 @@ summary:focus-visible {
   place-items: center;
   border-radius: 50% 50% 50% 8px;
   background: var(--forest);
-  color: white;
+  color: var(--white);
   font-size: 1.2rem;
   transform: rotate(-8deg);
 }
@@ -343,7 +358,7 @@ h3 {
   padding: .9rem 1.2rem;
   border-radius: 999px;
   background: var(--forest);
-  color: white;
+  color: var(--white);
   text-decoration: none;
   font-weight: 800;
   border: 2px solid var(--forest);
@@ -352,7 +367,7 @@ h3 {
 
 /* Button hover effect */
 .button:hover {
-  color: white;
+  color: var(--white);
   background: var(--leaf);
   border-color: var(--leaf);
   transform: translateY(-2px);
@@ -360,7 +375,7 @@ h3 {
 
 /* Secondary button with a transparent background */
 .button.secondary {
-  background: transparent;
+  background: var(--transparent);
   color: var(--forest);
 }
 
@@ -473,7 +488,7 @@ h3 {
 .stat {
   padding: 1.3rem;
   border-left: 3px solid var(--sun);
-  background: rgba(255, 255, 255, .55);
+  background: var(--stat-background);
 }
 
 /* Main statistic value or heading */
@@ -542,7 +557,7 @@ h3 {
 
 /* Paragraphs inside article content */
 .prose p {
-  color: #46564d;
+  color: var(--prose);
 }
 
 /* Second-level headings inside articles */
@@ -671,9 +686,9 @@ h3 {
   position: absolute;
   inset: auto 0 0;
   padding: 2.6rem 1.2rem 1rem;
-  color: white;
+  color: var(--white);
   font-weight: 800;
-  background: linear-gradient(transparent, rgba(12, 35, 27, .8));
+  background: linear-gradient(var(--transparent), var(--gallery-caption));
 }
 
 
@@ -686,8 +701,8 @@ h3 {
   width: 100%;
   height: 350px;
   object-fit: cover;
-  -webkit-mask-image: radial-gradient(ellipse at center, #000 53%, transparent 72%);
-  mask-image: radial-gradient(ellipse at center, #000 53%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse at center, var(--black) 53%, var(--transparent) 72%);
+  mask-image: radial-gradient(ellipse at center, var(--black) 53%, var(--transparent) 72%);
 }
 
 /* Image blending panel */
@@ -696,7 +711,7 @@ h3 {
   overflow: hidden;
   border-radius: var(--radius);
   min-height: 300px;
-  background: #b5cc75;
+  background: var(--blend-background);
 }
 
 /* Image using a blending mode and reduced saturation */
@@ -715,10 +730,10 @@ h3 {
   bottom: 1rem;
   left: 1rem;
   right: 1rem;
-  color: white;
+  color: var(--white);
   font-size: 1.3rem;
   font-weight: 900;
-  text-shadow: 0 2px 8px #17352c;
+  text-shadow: 0 2px 8px var(--blend-shadow);
 }
 
 /* Image with a sepia tone, reduced saturation and increased contrast */
@@ -785,7 +800,7 @@ details.tip p {
 /* Main footer background, text color and spacing */
 .site-footer {
   background: var(--forest);
-  color: #edf3e9;
+  color: var(--footer-text);
   padding: 3rem 0 1.5rem;
 }
 
@@ -799,18 +814,18 @@ details.tip p {
 /* Footer headings */
 .site-footer h2,
 .site-footer h3 {
-  color: white;
+  color: var(--white);
 }
 
 /* Footer paragraphs and list items */
 .site-footer p,
 .site-footer li {
-  color: #c6d6cc;
+  color: var(--footer-muted);
 }
 
 /* Footer links */
 .site-footer a {
-  color: #f2d58d;
+  color: var(--footer-link);
 }
 
 /* Remove default bullets and padding from footer lists */
@@ -826,11 +841,11 @@ details.tip p {
 
 /* Bottom footer area for copyright or secondary information */
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, .2);
+  border-top: 1px solid var(--footer-divider);
   margin-top: 2rem;
   padding-top: 1rem;
   font-size: .85rem;
-  color: #c6d6cc;
+  color: var(--footer-muted);
 }
 
 
@@ -1095,20 +1110,20 @@ details.tip p {
 
   /* Use a white background and black text for printing */
   body {
-    background: white;
-    color: black;
+    background: var(--white);
+    color: var(--black);
   }
 
   /* Remove colored backgrounds and reduce section spacing */
   .section,
   .page-hero {
     padding: 1rem 0;
-    background: white;
+    background: var(--white);
   }
 
   /* Print links in black */
   a {
-    color: black;
+    color: var(--black);
   }
 
   /* Avoid splitting these components across printed pages */
