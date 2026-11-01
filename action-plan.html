@@ -3,6 +3,7 @@
     <head>
         <title>Action Plan | Small Steps</title>
         <meta charset="UTF-8">
+        <link rel="icon" type="image/png" href="image/favicon.png">
         <meta name="description" content="Follow a practical action plan with small daily steps to build more sustainable habits and reduce your environmental impact.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css">
@@ -25,9 +26,9 @@
                     <a href="travel.html">Travel</a>
                     <a href="action-plan.html" aria-current="page">Action plan</a>
                 </nav>
-                <details class="mobile-menu">
-                    <summary class="menu-toggle" aria-label="Open or close navigation menu"></summary>
-                    <nav class="mobile-nav" aria-label="Mobile navigation">
+                <div class="mobile-menu">
+                    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav"></button>
+                    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
                         <a href="index.html">Home</a>
                         <a href="everyday.html">Everyday habits</a>
                         <a href="food.html">Food & shopping</a>
@@ -35,7 +36,7 @@
                         <a href="travel.html">Travel</a>
                         <a href="action-plan.html" aria-current="page">Action plan</a>
                     </nav>
-                </details>
+                </div>
             </div>
         </header>
         
@@ -214,40 +215,34 @@
             <h2 id="references">Code and feature references</h2>
 
             <p>
-                All page structure and styling in this student project are
-                written specifically for this site. No HTML or CSS template
-                has been used. The external references below explain web
-                standards and the two additional features used here; they
-                are references for understanding, not copied templates.
+                The website's HTML and CSS are written specifically for this project.
+                The two JavaScript extensions added to the original site are listed below,
+                along with references explaining the methods used.
             </p>
 
             <ul class="source-list">
 
                 <li>
-                    <strong>Additional feature 1 — CSS variables:</strong>
-                    CSS custom properties are used to reuse colours,
-                    shadows and other design values throughout the stylesheet.
-                    <a href="https://derek.comp.dkit.ie/web_development/css/variables.html">
-                        DkIT CSS Variables
-                    </a>.
-                </li>
-
-                <li>
-                    <strong>Additional feature 2 — CSS transitions and hover effects.</strong>
-                    Buttons, cards and gallery images use CSS transitions to animate
-                    changes to transform, background and box-shadow on hover.
-                    <a href="https://derek.comp.dkit.ie/web_development/css/transitions.html"
-                    target="_blank"
-                    rel="noopener noreferrer">DkIT: CSS Transitions</a>.
-                </li>
-
-                <li>
-                    <strong>Responsive and accessible foundations.</strong>
-                    Breakpoints, focus styles, reduced-motion preferences
-                    and semantic HTML are implemented for this site.
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries"
+                    <strong>JavaScript extension 1 — Animated hamburger menu.</strong>
+                    Clicking the three-bar menu button opens or closes the mobile navigation.
+                    JavaScript handles the click event, and a short fade-and-slide animation
+                    makes the menu appear and disappear.
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/animate"
                        target="_blank"
-                       rel="noopener noreferrer">MDN: media queries</a>.
+                       rel="noopener noreferrer">MDN: Element.animate()</a> and
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener"
+                       target="_blank"
+                       rel="noopener noreferrer">MDN: addEventListener()</a>.
+                </li>
+
+                <li>
+                    <strong>JavaScript extension 2 — Sustainable tip button.</strong>
+                    On the Everyday habits page, clicking “Show me a tip” displays a sustainable
+                    tip: “Turn off lights when you leave a room.” The click event updates the text
+                    on the page using JavaScript.
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent"
+                       target="_blank"
+                       rel="noopener noreferrer">MDN: textContent</a>.
                 </li>
 
             </ul>
@@ -327,5 +322,6 @@
                 <div class="footer-bottom">Small Steps · Student project</div>
             </div>
         </footer>
+        <script src="js/script.js" defer></script>
     </body>
 </html>

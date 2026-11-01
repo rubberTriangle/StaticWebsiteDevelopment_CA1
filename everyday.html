@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <link rel="icon" type="image/png" href="image/favicon.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Explore everyday habits that reduce waste, save resources and make sustainable living easier.">
         <title>Everyday habits | Small Steps</title>
@@ -26,9 +27,9 @@
                     <a href="travel.html">Travel</a>
                     <a href="action-plan.html">Action plan</a>
                 </nav>
-                <details class="mobile-menu">
-                    <summary class="menu-toggle" aria-label="Open or close navigation menu"></summary>
-                    <nav class="mobile-nav" aria-label="Mobile navigation">
+                <div class="mobile-menu">
+                    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav"></button>
+                    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
                         <a href="index.html">Home</a>
                         <a href="everyday.html" aria-current="page">Everyday habits</a>
                         <a href="food.html">Food & shopping</a>
@@ -36,7 +37,7 @@
                         <a href="travel.html">Travel</a>
                         <a href="action-plan.html">Action plan</a>
                     </nav>
-                </details>
+                </div>
             </div>
         </header>
 
@@ -93,6 +94,13 @@
                         Reusables are most helpful when they are used many times.
                         You do not need to throw away useful items just to replace
                         them with a more sustainable-looking version.
+                    </div>
+
+                    <div class="callout sustainable-tip-box">
+                        <strong>A sustainable tip</strong>
+                        <p>Press the button to reveal a simple sustainable habit.</p>
+                        <button class="button" id="sustainable-tip-button" type="button">Show me a tip</button>
+                        <p id="sustainable-tip" class="tip-output" aria-live="polite" hidden></p>
                     </div>
 
                     <h2>Common questions</h2>
@@ -215,5 +223,6 @@
                 <div class="footer-bottom">Small Steps · Student project</div>
             </div>
         </footer>
+        <script src="js/script.js" defer></script>
     </body>
 </html>

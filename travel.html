@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <link rel="icon" type="image/png" href="image/favicon.png">
         <meta name="description" content="Explore lower-impact travel options, including walking, cycling and public transport, to reduce your environmental footprint.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sustainable Travel | Small Steps</title>
@@ -25,9 +26,9 @@
                     <a href="travel.html" aria-current="page">Travel</a>
                     <a href="action-plan.html">Action plan</a>
                 </nav>
-                <details class="mobile-menu">
-                    <summary class="menu-toggle" aria-label="Open or close navigation menu"></summary>
-                    <nav class="mobile-nav" aria-label="Mobile navigation">
+                <div class="mobile-menu">
+                    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav"></button>
+                    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
                         <a href="index.html">Home</a>
                         <a href="everyday.html">Everyday habits</a>
                         <a href="food.html">Food & shopping</a>
@@ -35,7 +36,7 @@
                         <a href="travel.html" aria-current="page">Travel</a>
                         <a href="action-plan.html">Action plan</a>
                     </nav>
-                </details>
+                </div>
             </div>
         </header>
         <main id="main">
@@ -226,5 +227,6 @@
                 <div class="footer-bottom">Small Steps · Student project</div>
             </div>
         </footer>
+        <script src="js/script.js" defer></script>
     </body>
 </html>

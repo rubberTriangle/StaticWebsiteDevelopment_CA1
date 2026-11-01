@@ -3,6 +3,7 @@
     <head>
         <title>Sustainable Home Habits | Small Steps</title>
         <meta charset="UTF-8">
+        <link rel="icon" type="image/png" href="image/favicon.png">
         <meta name="description" content="Discover practical ways to save energy, water and resources while making your home more sustainable.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css">
@@ -25,9 +26,9 @@
                     <a href="travel.html">Travel</a>
                     <a href="action-plan.html">Action plan</a>
                 </nav>
-                <details class="mobile-menu">
-                    <summary class="menu-toggle" aria-label="Open or close navigation menu"></summary>
-                    <nav class="mobile-nav" aria-label="Mobile navigation">
+                <div class="mobile-menu">
+                    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav"></button>
+                    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
                         <a href="index.html">Home</a>
                         <a href="everyday.html">Everyday habits</a>
                         <a href="food.html">Food & shopping</a>
@@ -35,7 +36,7 @@
                         <a href="travel.html">Travel</a>
                         <a href="action-plan.html">Action plan</a>
                     </nav>
-                </details>
+                </div>
             </div>
         </header>
 
@@ -192,5 +193,6 @@
                 <div class="footer-bottom">Small Steps · Student project</div>
             </div>
         </footer>
+        <script src="js/script.js" defer></script>
     </body>
 </html>
